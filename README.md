@@ -4,9 +4,9 @@ Here is a project based on nextjs and material-ui to toy a bit with react.
 
 ## :zap: So what is this about?
 
-Your new boss comes at your desk today. He says there is a lot of devs in the team right now, and each one of them is assigned to a squad. But he cannot keep up with who is is which squad.
+Your new boss comes at your desk today. He says there is a lot of devs in the team right now, and each one of them is assigned to a squad. But he cannot keep up with who is in which squad.
 
-He wants you to make an app allowing him to see developers and filter them by squad.
+He wants you to make an app allowing him to see developers and filter them by squad. Then, once you're done, he may come back to ask you for something extra: the ability to move a dev to another squad.
 
 ## :zap: Alright, where's the data, boss?
 
