@@ -2,6 +2,8 @@
 
 Here is a project based on nextjs and material-ui to toy a bit with react.
 
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/jpb06/dev-friends-starter)
+
 ## :zap: So what is this about?
 
 Your new boss comes at your desk today. He says there is a lot of devs in the team right now, and each one of them is assigned to a squad. But he cannot keep up with who is in which squad.
