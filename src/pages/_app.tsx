@@ -1,8 +1,7 @@
-import Head from 'next/head';
-import React, { ReactNode, useEffect } from 'react';
-
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
+import Head from 'next/head';
+import React, { ReactNode, useEffect } from 'react';
 
 import { appTheme } from '../app.theme';
 
