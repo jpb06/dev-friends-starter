@@ -1,8 +1,14 @@
+import {
+  Card,
+  CardContent,
+  Grid,
+  makeStyles,
+  Typography,
+} from '@material-ui/core';
 import Head from 'next/head';
 import Image from 'next/image';
 import React from 'react';
 
-import { Card, CardContent, Grid, makeStyles, Typography } from '@material-ui/core';
 import Happy from '@public/img/happy.jpg';
 
 const styles = makeStyles({
