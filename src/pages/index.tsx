@@ -30,7 +30,12 @@ export const Home = (): JSX.Element => {
       <Head>
         <title>Index</title>
       </Head>
-      <Grid container direction="row" justify="center" alignItems="center">
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+      >
         <Card className={classes.card}>
           <Image src={Happy} alt="Friends" priority />
           <CardContent>

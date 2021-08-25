@@ -5,31 +5,27 @@ const {
 } = require('./tsconfig');
 
 module.exports = {
-  roots: ['<rootDir>/src/'],
-  globalSetup: '<rootDir>/jest.setup.env.ts',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
   testEnvironment: 'jsdom',
-  testPathIgnorePatterns: [
-    '<rootDir>[/\\\\](node_modules|.next|coverage)[/\\\\]',
-  ],
+  roots: ['<rootDir>'],
+  globalSetup: '<rootDir>/jest/jest.setup.env.ts',
+  moduleNameMapper: {
+    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/jest/modules-mappers/file.stub.ts',
+    ...pathsToModuleNameMapper(tsconfigPaths, { prefix: '<rootDir>/src' }),
+  },
+  testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
+  setupFilesAfterEnv: ['<rootDir>/jest/jest.setup.js'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
   transform: {
-    '^.+\\.(ts|tsx)$': 'babel-jest',
+    '^.+\\.(ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
   },
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
-  moduleNameMapper: {
-    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-    '\\.(gif|ttf|eot|svg|png)$': 'test-file-stub',
-    ...pathsToModuleNameMapper(tsconfigPaths, { prefix: '<rootDir>/src' }),
-  },
-  coveragePathIgnorePatterns: [
-    '<rootDir>/src/tests-related/',
-    '<rootDir>/src/types/',
-    '<rootDir>/src/pages/',
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx}',
+    '!**/node_modules/**',
+    '!src/pages/**/*.tsx',
   ],
-  collectCoverageFrom: ['src/**/*.{ts,tsx}'],
-  coverageReporters: ['json-summary', 'text', 'lcov'],
 };
