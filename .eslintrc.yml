@@ -4,7 +4,6 @@ plugins:
   - '@typescript-eslint'
   - prettier
   - jest-dom
-  - import
 
 extends:
   - eslint:recommended
