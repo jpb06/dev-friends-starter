@@ -6,13 +6,12 @@ plugins:
   - jest-dom
 
 extends:
+  - next/core-web-vitals
   - eslint:recommended
-  - plugin:react/recommended
   - plugin:@typescript-eslint/recommended
   - plugin:prettier/recommended
   - plugin:jest-dom/recommended
   - plugin:import/typescript
-  - next
 
 env:
   es6: true
