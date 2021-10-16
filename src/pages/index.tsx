@@ -22,7 +22,7 @@ const styles = makeStyles({
   },
 });
 
-export const Home = (): JSX.Element => {
+export const Home: React.FC = () => {
   const classes = styles();
 
   return (
