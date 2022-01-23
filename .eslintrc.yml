@@ -46,7 +46,7 @@ rules:
       alphabetize:
         order: 'asc'
       pathGroups:
-        - pattern: '{@public/**}'
+        - pattern: '{@public/**,@logic/**,@components/**}'
           group: internal
           position: before
       pathGroupsExcludedImportTypes:
