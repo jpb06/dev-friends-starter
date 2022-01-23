@@ -1,39 +1,33 @@
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import { AppProps } from 'next/app';
 import Head from 'next/head';
-import React, { ReactNode, useEffect } from 'react';
+import * as React from 'react';
+
+import { createEmotionCache } from '@logic/createEmotionCache';
 
 import { appTheme } from '../app.theme';
 
-type WithChildren = { children?: ReactNode };
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
 
-interface AppProps {
-  Component: React.ComponentType<WithChildren>;
-  pageProps: WithChildren;
+interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
 }
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-  useEffect(() => {
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles) {
-      jssStyles.parentElement?.removeChild(jssStyles);
-    }
-  }, []);
-
+export default function MyApp(props: MyAppProps) {
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
-    <>
+    <CacheProvider value={emotionCache}>
       <Head>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={appTheme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
-    </>
+    </CacheProvider>
   );
-};
-
-export default App;
+}

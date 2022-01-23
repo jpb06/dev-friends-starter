@@ -1,31 +1,27 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils');
+const nextJest = require('next/jest');
+const { pathsToModuleNameMapper } = require('ts-jest');
 
 const {
   compilerOptions: { paths: tsconfigPaths },
 } = require('./tsconfig');
 
-module.exports = {
-  testEnvironment: 'jsdom',
-  roots: ['<rootDir>'],
+const createJestConfig = nextJest({
+  dir: './',
+});
+
+const jestConfig = {
+  logHeapUsage: true,
+  testEnvironment: 'jest-environment-jsdom',
   globalSetup: '<rootDir>/jest/jest.setup.env.ts',
   moduleNameMapper: {
-    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/jest/modules-mappers/file.stub.ts',
     ...pathsToModuleNameMapper(tsconfigPaths, { prefix: '<rootDir>/src' }),
   },
-  testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   setupFilesAfterEnv: ['<rootDir>/jest/jest.setup.js'],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
-  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
-  transform: {
-    '^.+\\.(ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
-  },
-  watchPlugins: [
-    'jest-watch-typeahead/filename',
-    'jest-watch-typeahead/testname',
-  ],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!**/node_modules/**',
     '!src/pages/**/*.tsx',
   ],
 };
+
+module.exports = createJestConfig(jestConfig);
