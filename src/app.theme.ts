@@ -1,8 +1,8 @@
-import { createTheme } from '@material-ui/core';
+import { createTheme } from '@mui/material';
 
 export const appTheme = createTheme({
   palette: {
-    type: 'dark',
+    mode: 'dark',
     background: { paper: 'darkslategray' },
     primary: {
       main: '#49a39f',
