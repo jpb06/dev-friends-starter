@@ -17,7 +17,8 @@
     "paths": {
       "@public/*": ["./public/*"],
       "@logic/*": ["./src/logic/*"],
-      "@components/*": ["./src/components/*"]
+      "@components/*": ["./src/components/*"],
+      "~/*": ["./src/*"]
     },
     "incremental": true
   },
