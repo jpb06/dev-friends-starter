@@ -1,5 +1,5 @@
 const nextJest = require('next/jest');
-const { pathsToModuleNameMapper } = require('ts-jest');
+const { transformTsPaths } = require('ts-paths-transform');
 
 const {
   compilerOptions: { paths: tsconfigPaths },
@@ -14,7 +14,10 @@ const jestConfig = {
   testEnvironment: 'jest-environment-jsdom',
   globalSetup: '<rootDir>/jest/jest.setup.env.ts',
   moduleNameMapper: {
-    ...pathsToModuleNameMapper(tsconfigPaths, { prefix: '<rootDir>/src' }),
+    ...transformTsPaths(tsconfigPaths, {
+      prefix: '<rootDir>',
+      //  debug: true,
+    }),
   },
   setupFilesAfterEnv: ['<rootDir>/jest/jest.setup.js'],
   collectCoverageFrom: [
