@@ -2,6 +2,7 @@ import { Card, CardContent, Grid, Typography } from '@mui/material';
 import Head from 'next/head';
 import Image from 'next/image';
 
+import Filter from '@components/home/filter/Filter';
 import Happy from '@public/img/happy.jpg';
 
 export const Home = () => (
@@ -27,6 +28,7 @@ export const Home = () => (
           </Typography>
         </CardContent>
       </Card>
+      <Filter />
     </Grid>
   </>
 );

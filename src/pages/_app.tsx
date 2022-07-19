@@ -1,4 +1,5 @@
 import { CacheProvider, EmotionCache } from '@emotion/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppProps } from 'next/app';
@@ -11,6 +12,7 @@ import { appTheme } from '../app.theme';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
+const queryClient = new QueryClient();
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
@@ -23,11 +25,14 @@ export default function MyApp(props: MyAppProps) {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={appTheme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={appTheme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </QueryClientProvider>
+
     </CacheProvider>
   );
 }
