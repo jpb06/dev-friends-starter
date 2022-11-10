@@ -7,7 +7,7 @@ import Happy from '@public/img/happy.jpg';
 export const Home = () => (
   <>
     <Head>
-      <title>Index</title>
+      <title>My dev friends</title>
     </Head>
     <Grid container direction="row" justifyContent="center" alignItems="center">
       <Card
@@ -17,13 +17,13 @@ export const Home = () => (
           marginTop: 25,
         }}
       >
-        <Image src={Happy} alt="Friends" priority />
+        <Image src={Happy} alt="Friends" width={600} height={600} priority />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             My dev friends
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Index
+            A new adventure begins 🚀
           </Typography>
         </CardContent>
       </Card>
