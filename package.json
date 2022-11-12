@@ -10,7 +10,7 @@
     "test": "jest",
     "test:dev": "jest --watchAll --coverage",
     "prepare": "husky install",
-    "sync-icons": "yarn generateReadmeIcons -h 70"
+    "sync-icons": "yarn generateReadmeIcons -h 50"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
