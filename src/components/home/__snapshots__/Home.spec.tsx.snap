@@ -21,7 +21,7 @@ exports[`Home components should match snapshot 1`] = `
           <p
             class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
           >
-            Index
+            A new adventure begins 🚀
           </p>
         </div>
       </div>
