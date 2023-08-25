@@ -19,7 +19,7 @@ const jestConfig = {
       //  debug: true,
     }),
   },
-  setupFilesAfterEnv: ['<rootDir>/jest/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest/jest.setup.js', "@testing-library/jest-dom"],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!**/node_modules/**',
